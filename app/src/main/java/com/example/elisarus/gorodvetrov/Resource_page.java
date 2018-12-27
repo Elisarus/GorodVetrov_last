@@ -12,27 +12,29 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Resource_page extends AppCompatActivity  {
+    final int btn_number = 5;
+   final int resource_number_items = 5;
 
-int[] price_text = new int[5];
+int[] price_text = new int[resource_number_items];
 
     public void load_game1(){
 
-        TextView[] textViews = new TextView[5];
+        TextView[] textViews = new TextView[resource_number_items];
         int l = 0;
-        for (int i = 0; i<5; i++) {
+        for (int i = 0; i<resource_number_items; i++) {
             int id = getResources().getIdentifier("price" + l, "id", getPackageName());
             textViews[i] = findViewById(id);
             l++;
         }
 
         int k = 0;
-        SharedPreferences[] load_game = new SharedPreferences[5];
-        for(int i = 0; i<5; i++) {
+        SharedPreferences[] load_game = new SharedPreferences[resource_number_items];
+        for(int i = 0; i<resource_number_items; i++) {
             load_game[i] = getSharedPreferences("price" + k, 0);
             k++;
         }
 
-        for (int i =0; i<5; i++){
+        for (int i =0; i<resource_number_items; i++){
             price_text[i] = load_game[i].getInt("price_int"+i, 0);
 
 
@@ -42,9 +44,9 @@ int[] price_text = new int[5];
 
     public void update_page(){
 
-        TextView[] textViews = new TextView[5];
+        TextView[] textViews = new TextView[resource_number_items];
         int l = 0;
-        for (int i = 0; i<5; i++) {
+        for (int i = 0; i<resource_number_items; i++) {
             int id = getResources().getIdentifier("price" + l, "id", getPackageName());
             textViews[i] = findViewById(id);
             l++;
@@ -52,7 +54,7 @@ int[] price_text = new int[5];
 
 
 
-        for (int i = 0; i<5; i++) {
+        for (int i = 0; i<resource_number_items; i++) {
 
             textViews[i].setText(Integer.toString(price_text[i]));
         }
@@ -63,9 +65,9 @@ int[] price_text = new int[5];
 
 
     public void change(int a){
-        TextView[] textViews = new TextView[5];
+        TextView[] textViews = new TextView[resource_number_items];
         int l = 0;
-        for (int i = 0; i<5; i++){
+        for (int i = 0; i<resource_number_items; i++){
             int id = getResources().getIdentifier("price" + l, "id", getPackageName());
             textViews[i] = findViewById(id);
             l++;
@@ -76,7 +78,7 @@ int[] price_text = new int[5];
 
             case 0 :
 
-                for(int i = 0; i<5; i++){
+                for(int i = 0; i<resource_number_items; i++){
                     textViews[i].setText("44");
                 }
 
@@ -84,7 +86,7 @@ int[] price_text = new int[5];
 
             case 1 :
 
-                for(int i = 0; i<5; i++){
+                for(int i = 0; i<resource_number_items; i++){
                     textViews[i].setText("36");
                 }
 
@@ -92,7 +94,7 @@ int[] price_text = new int[5];
 
             case 2:
 
-                for(int i = 0; i<5; i++){
+                for(int i = 0; i<resource_number_items; i++){
                     textViews[i].setText("48");
                 }
 
@@ -100,7 +102,7 @@ int[] price_text = new int[5];
 
             case 3:
 
-                for(int i = 0; i<5; i++){
+                for(int i = 0; i<resource_number_items; i++){
                     textViews[i].setText("56");
                 }
 
@@ -108,7 +110,7 @@ int[] price_text = new int[5];
 
             case 4:
 
-                for(int i = 0; i<5; i++){
+                for(int i = 0; i<resource_number_items; i++){
                     textViews[i].setText("13");
                 }
 
@@ -116,14 +118,14 @@ int[] price_text = new int[5];
 
             case 5:
 
-                for(int i = 0; i<5; i++){
+                for(int i = 0; i<resource_number_items; i++){
                     textViews[i].setText("10");
                 }
 
                 break;
 
                 default:
-                    for(int i = 0; i<5; i++){
+                    for(int i = 0; i<resource_number_items; i++){
                         textViews[i].setText("22");
                     }
                     break;
@@ -200,16 +202,16 @@ int[] price_text = new int[5];
 
 public void fulfill(int a){
 
-    TextView[] textViews = new TextView[5];
+    TextView[] textViews = new TextView[resource_number_items];
 
     int l = 0;
-    for (int i = 0; i<5; i++){
+    for (int i = 0; i<resource_number_items; i++){
         int id = getResources().getIdentifier("price" + l, "id", getPackageName());
         textViews[i] = findViewById(id);
         l++;
     }
 
-    for (int i = 0; i<5; i++) {
+    for (int i = 0; i<resource_number_items; i++) {
 
         int price_text = Integer.parseInt(textViews[i].getText().toString());
         textViews[i].setText(price_text / a);
@@ -228,7 +230,7 @@ public void fulfill(int a){
         having_items5.setText(Integer.toString(fName));
         change(fName);
 
-        final int btn_number = 5;
+
 
         int g = 0;
         Button[] btn_sell = new Button[btn_number];
@@ -293,21 +295,21 @@ public void fulfill(int a){
                 startActivity(intent);
                 TextView[] textViews = new TextView[5];
                 int l = 0;
-                for (int i = 0; i<5; i++) {
+                for (int i = 0; i<resource_number_items; i++) {
                     int id = getResources().getIdentifier("price" + l, "id", getPackageName());
                     textViews[i] = findViewById(id);
                     l++;
                 }
 
                 int k = 0;
-                SharedPreferences[] save_game = new SharedPreferences[5];
-                for(int i = 0; i<5; i++) {
+                SharedPreferences[] save_game = new SharedPreferences[resource_number_items];
+                for(int i = 0; i<resource_number_items; i++) {
                     save_game[i] = getSharedPreferences("price" + k, Integer.parseInt(textViews[k].getText().toString()));
                     k++;
                 }
 
 
-                for(int i = 0; i<5; i++) {
+                for(int i = 0; i<resource_number_items; i++) {
                     int price_int = Integer.parseInt(textViews[i].getText().toString());
                     SharedPreferences.Editor editor = save_game[i].edit();
                     editor.putInt("price_int"+i, price_int);
